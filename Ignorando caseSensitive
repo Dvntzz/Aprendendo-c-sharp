@@ -1,0 +1,14 @@
+class Program {
+    static void Main() {
+        string name = "fredi";
+
+        //C# é uma linguaguem fortemente tipada, além de ser case sentive, ou seja, ela difere letras
+        //maiusculas de minusculas, porém, a função Equals junto das duas strings a serem comparadas e ao objeto
+        //StringComparison.OrdinalIgnoreCase essa caracteristica pode ser ignorada.
+        if(string.Equals(name, "FREDI", StringComparison.OrdinalIgnoreCase)) {
+            Console.WriteLine("Ignorou maiusculas e minusculas");
+        } else {
+            Console.WriteLine("Não ignorou");
+        }
+    }
+}
