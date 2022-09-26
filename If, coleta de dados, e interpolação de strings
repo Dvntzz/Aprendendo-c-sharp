@@ -1,0 +1,22 @@
+class Program {
+    static void Main() {
+        Console.Write("Text your name: ");
+string name = Console.ReadLine();
+//interpolação de string
+Console.WriteLine($"Olá {name}!");
+
+Console.Write("Text your born year: ");
+int birthDate = int.Parse(Console.ReadLine()); 
+
+int age = 2022 - birthDate; // +, -, *, /
+Console.WriteLine($"Você tem {age} anos");
+
+if(age > 18){
+    Console.WriteLine($"Você é maior de idade!");
+} else if(age == 12){
+    Console.WriteLine("Você joga FreeFire!");
+}else {
+    Console.WriteLine($"é menor de idade!!");
+}
+    }
+}
