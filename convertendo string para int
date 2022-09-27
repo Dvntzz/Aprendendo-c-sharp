@@ -1,0 +1,27 @@
+class Program {
+    static void Main() {
+
+        //converte uma string para int e coloca dentro da variavel no segundo parametro
+        //caso exista apenas numeros dentro da string
+        //o método "TryParse" retorna boolean 
+
+        
+        if(int.TryParse("42", out int x)){
+            Console.WriteLine("Converteu com sucesso!");
+        }else {
+            Console.WriteLine("Erro ao converter!");
+        }   
+
+        //resultado da conversão = 42
+        Console.WriteLine(x);
+
+        if(int.TryParse("abc2jfknjaldjaolkdja4", out int y)){
+            Console.WriteLine("Converteu com sucesso!");
+        }else {
+            Console.WriteLine("Erro ao converter!");
+        }   
+
+        //resultado da conversão = 0
+        Console.WriteLine(y);
+    }
+}
