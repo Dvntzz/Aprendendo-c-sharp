@@ -1,0 +1,15 @@
+class Program {
+    static void Main() {
+        //conversões explicitas
+
+
+        int i = 10;//o tipo int tem o tamanho de 32 bits
+        long l = 1000978667890843654;// o tipo long tem o tamanho de 64 bits
+
+        i = (int) l;
+
+        Console.WriteLine($"variavel l: {l}");
+        Console.WriteLine($"variavel i: {i}");
+        Console.WriteLine("a variavel 'i' por ser do tipo int, não suporta todos os dados da variavel 'l' de tipo long");
+    }
+}
