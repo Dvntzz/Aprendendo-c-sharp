@@ -1,0 +1,35 @@
+class Program {
+    static void Main() {
+        //mostra se a string é nula ou está vazia
+        string t1 = "";
+        Console.WriteLine(string.IsNullOrEmpty(t1));
+        //resposta do console: True
+
+        //mostra se a string é nula ou tem espaços em branco
+        string t2 = "                        ";
+        Console.WriteLine(string.IsNullOrWhiteSpace(t2));
+        //resposta do console: True
+
+        //imprime o array definindo o primeiro parametro como separador
+        string[] names = { "Felipe", "Dantas", "Nascimento"};
+        Console.WriteLine(string.Join(' ', names));
+
+        //resposta do console: Felipe Dantas Nascimento
+        string t3 = "Teste";
+
+        //entrega o tamanho da string
+        Console.WriteLine(t3.Length); // resposta: 5
+
+        //verifica se o parametro existe dentro da string
+        Console.WriteLine(t3.Contains("a")); //resposta: false
+
+        //verifica se a string se inicia com o parametro
+        Console.WriteLine(t3.StartsWith('T')); //resposta: true
+
+        //verifica se a string termina com o parametro
+        Console.WriteLine(t3.EndsWith('c'));//resposta: false
+
+        //entrega o numero de onde está o parametro dentro da string (funciona como um array de char's)
+        Console.WriteLine(t3.IndexOf('t'));//resposta: 3 
+    }
+}
