@@ -1,0 +1,23 @@
+class Program {
+    static void Main() {
+
+        //só é possivel tornar um tipo de valor em um tipo *Anulavel* usando o ? (interrogação)
+        int? i = 10;
+        long? a = 1000000000000000000;
+        string? o = "o";
+
+        a = null;
+        o = null;
+        i = null;
+
+        //Tipos de referencia é possivel tornala nula apenas atribuindo o valor de null a ela
+        Teste t = new Teste();
+
+        t = null;
+
+    }
+}
+
+class Teste {
+    public int x;
+}
