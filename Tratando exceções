@@ -1,0 +1,32 @@
+        //Tratando exceções
+
+        int[] i = {0};
+
+        string s = null;
+
+        try
+        {
+            Console.WriteLine(s.Length);
+            Console.WriteLine(i[1]);
+        }
+        catch (NullReferenceException exception)
+        {
+            
+            Console.WriteLine($"erro de referencia nula: {exception.Message}");
+
+            //erro de referencia nula: Object reference not set to an instance of an object.
+        }
+        catch (IndexOutOfRangeException exception)
+        {
+            
+            Console.WriteLine($"erro: {exception.Message}");
+
+            //erro: Index was outside the bounds of the array.
+        }
+        catch (Exception exception)
+        {
+            
+            Console.WriteLine($"erro: {exception.Message}");
+
+            //erro: ?.
+        }
