@@ -1,0 +1,82 @@
+class Program {
+
+    static void Main(){
+
+        ILogger logger= new FileLogger();
+        BankAccount account1 = new BankAccount("Felipe", 100, logger);
+        BankAccount account2 = new BankAccount("Ester", 500, logger);
+
+        account1.Deposit(-100);
+        account2.Deposit(100);
+
+        Console.WriteLine(account1.AccountBalance);
+        Console.WriteLine(account2.AccountBalance);
+    }
+}
+
+//interfaces não podem ser instaciandas
+interface ILogger {
+    void Log(string message);
+}
+
+
+//Classe que usa a interface ILogger para mostrar sua mensagem no console
+class ConsoleLogger : ILogger
+{
+    public void Log(string message)
+    {
+        Console.WriteLine($"LOGGER: {message}");
+    }
+}
+
+//Classe que usa a interface ILogger para criar um arquivo com sua mensagem
+class FileLogger : ILogger
+{
+    public void Log(string message)
+    {
+
+        File.AppendAllText("log.txt", $"{message}{Environment.NewLine}");
+    }
+}
+
+
+//classe conta do banco
+class BankAccount {
+    private string accountName;
+    private readonly ILogger logger;
+
+    public decimal AccountBalance { get; private set;}
+
+
+    public BankAccount(string name, decimal balance, ILogger logger) {
+        if(string.IsNullOrWhiteSpace(name)){
+            throw new ArgumentException("Nome invalido.", nameof(name));
+        }
+
+        if(balance < 0) {
+            throw new Exception("Não é possivel criar uma conta negativa!");
+        }
+
+        accountName = name;
+        AccountBalance = balance;
+        this.logger = logger;
+    }
+
+    public void Deposit(decimal amount) {
+
+        if(amount <= 0) {
+            //throw new ArgumentException("Invalid amount.");
+            logger.Log($"Não é possivel depositar {amount} na conta de {accountName}");
+            return;
+        } else {
+            AccountBalance += amount;
+        }
+        
+    }
+
+    /* public decimal getBalance() {
+        Console.Write(accountName + " seu saldo atual é de: ");
+        return accountBalance;
+    } */
+
+}
