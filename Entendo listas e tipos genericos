@@ -1,0 +1,42 @@
+class Program {
+
+    static void Main(){
+
+        var logger = new FileLogger();
+        var account1 = new BankAccount("Felipe", 100, logger);
+        var account2 = new BankAccount("Ester", 500, logger);
+
+
+        //Tipo generico lista
+        var accounts = new List<BankAccount>();
+
+        /* 
+        Diferente de arrays
+        as listas tem metodos proprios
+        que simplificam a manipulação de seus itens
+        */
+        accounts.Add(account1);
+        accounts.Add(account2);
+        
+        accounts.Remove(account1);
+
+        var numbers = new List<int>() {1 , 2, 3, 4, 5};
+
+        foreach (BankAccount account in accounts)
+        {
+            Console.WriteLine(account.AccountBalance);
+        }
+
+
+        var store = new DataStore<string>();
+        store.Value = "42";
+        Console.WriteLine(store.Value);
+
+    }
+}
+
+
+//criando uma classe generica
+class DataStore<T> {
+    public T Value {get; set;}
+}
